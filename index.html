@@ -21,14 +21,9 @@
 					<nav id="nav">
 						<ul>
 							<li class="current"><a href="index.html">Home Page</a></li>
-							<li class="submenu">
-								<a href="#">Projects</a>
-								<ul>
-									<li><a href="left-sidebar.html">MSGT_Proj_1</a></li>
-									<li><a href="right-sidebar.html">MSGT_Proj_2</a></li>
-									<li><a href="no-sidebar.html">MSGT_Proj_3</a></li>
-									<li><a href="contact.html">MSGT_Proj_4</a></li>
-								</ul>
+							<li class="current">
+								<a href="MSGT_Project_Page.html">Projects</a>
+								
 							</li>
 						</ul>
 					</nav>
@@ -52,7 +47,13 @@
 						<p>My Name is Greg Mireles, a student in the Master of
 						<br> Science in Geospatial Technologies (MSGT)
 						<br> cohort of 2018-19, at the University of Washington
-						<br> Tacoma.</p>
+						<br> Tacoma.
+						<br> This portfolio is designed to showcase the labs
+						<br> and Capstone project that will be completed 
+						<br> throughout the program. Please click the button 
+						<br> below to read more information about me.
+						<br> </p>
+						<br> <a href="images/UW_Logo.webp" class="image featured"><img src="images/UW_Logo.webp" alt="UW" /></a>
 
 						<footer>
 							<ul class="buttons stacked">
@@ -68,7 +69,7 @@
 				<article id="main">
 
 					<header class="special container">
-						<span class="icon fa-bar-chart-o"></span>
+						<span class="icon fa-laptop"></span>
 						<h2>The University of Washington Tacoma's <br> <strong>Master of Science in Geospatial Technologies</strong> 
 							<br>Program Overview/Info
 						<br />
@@ -96,8 +97,8 @@
 
 									<ul class="featured-icons">
 										
-										<li><span class="icon fa-laptop"><span class="label">Feature 3</span></span></li>
-										<li><span class="icon fa-cog"><span class="label">Feature 4</span></span></li>
+										<li><span class="icon fa-empty"><span class="label">Feature 3</span></span></li>
+										<li><span class="icon fa-empty"><span class="label">Feature 4</span></span></li>
 										
 									</ul>
 
@@ -111,7 +112,7 @@
 								<div class="col-4 col-12-narrower">
 
 									<section>
-										<span class="icon featured fa-check"></span>
+										<span class="icon featured fa-laptop"></span>
 										<header>
 											<h3>What is GIS?</h3>
 										</header>
@@ -124,18 +125,73 @@
 								<div class="col-4 col-12-narrower">
 
 									<section>
-										<span class="icon featured fa-check"></span>
+										<span class="icon featured fa-laptop"></span>
 										<header>
 											<h3>Google Maps</h3>
 										</header>
-										<p>Below is a basic Google Map.</p>
+										<p>Below is a basic Google Map. There is also a marker that was added to demonstrate how to drop a pin using Google Maps API in a web map.</p>
+
+										<head>
+		<style>
+			#map {
+				width: 100%;
+				height: 400px;
+				background-color: grey;
+			}
+		</style>
+	</head>
+	
+	<body>
+		
+		<div id="map"></div>
+		<script>
+			//this function starts up the map
+			function initMap() {
+				
+				//a variable for Tacoma
+				var tacoma = {lat: 47.2446, lng: -122.4376};
+				
+				//The Map! Get the HTML element named 'map'
+				var map = new google.maps.Map(document.getElementById('map'), {
+					//set the zoom to 4
+					zoom: 4,
+					//set the center on the Tacoma variable 
+					center: tacoma,
+					//turn OFF the zoom control
+					zoomControl: false,
+					//Make it so you have to hold CTRL to zoom
+					gestureHandling: 'cooperative',
+					//Turn ON the map type controls (satellite/roads view)
+					mapTypeControl: true,
+					//Change the map type controls to be on the bottom left in a horizontal row
+					mapTypeControlOptions :{
+						style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+						position: google.maps.ControlPosition.BOTTOM_LEFT
+					}
+					});
+				
+				//A marker for Tacoma
+				var marker = new google.maps.Marker({
+					position: tacoma,
+					map: map,
+					label: "UWT"
+				});
+				
+			}
+		</script>
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXvJ72oaaTTtLCj5XYS2EcPyMtEb1kyWQ&callback=initMap">
+		</script>
+	</body>
 									</section>
+
+
 
 								</div>
 								<div class="col-4 col-12-narrower">
 
 									<section>
-										<span class="icon featured fa-check"></span>
+										<span class="icon featured fa-laptop"></span>
 										<header>
 											<h3>What is Geospatial Technologies?</h3>
 										</header>
@@ -162,22 +218,22 @@
 								<div class="col-6 col-12-narrower">
 
 									<section>
-										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+										<a href="images/Flood_Analysis.webp" class="image featured"><img src="images/Flood_Analysis.webp" alt="Flood Analysis" /></a>
 										<header>
-											<h3>Project 1</h3>
+											<h3><strong>Flood Analysis</strong></h3>
 										</header>
-										<p>Coming Soon</p>
+										<p></p>
 									</section>
 
 								</div>
 								<div class="col-6 col-12-narrower">
 
 									<section>
-										<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+										<a href="images/School_Analysis.webp" class="image featured"><img src="images/School_Analysis.webp" alt="School Analysis" /></a>
 										<header>
-											<h3>Project 2</h3>
+											<h3><strong>School Analysis</strong></h3>
 										</header>
-										<p>Coming Soon</p>
+										<p></p>
 									</section>
 
 								</div>
@@ -186,22 +242,22 @@
 								<div class="col-6 col-12-narrower">
 
 									<section>
-										<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+										<a href="images/Toxic_Analysis.webp" class="image featured"><img src="images/Toxic_Analysis.webp" alt="Toxic Analysis" /></a>
 										<header>
-											<h3>Project 3</h3>
+											<h3><strong>Toxic Analysis</strong></h3>
 										</header>
-										<p>Coming Soon</p>
+										<p></p>
 									</section>
 
 								</div>
 								<div class="col-6 col-12-narrower">
 
 									<section>
-										<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+										<a href="images/LiDAR_Analysis.webp" class="image featured"><img src="images/LiDAR_Analysis.webp" alt="LiDAR Analysis" /></a>
 										<header>
-											<h3>Project 4</h3>
+											<h3><strong>LiDAR Analysis</strong></h3>
 										</header>
-										<p>Coming Soon</p>
+										<p></p>
 									</section>
 
 								</div>
@@ -209,7 +265,7 @@
 
 							<footer class="major">
 								<ul class="buttons">
-									<li><a href="#" class="button"> See More
+									<li><a href="MSGT_Project_Page.html" class="button"> See More
 									<br>
 									   <strong>Analysis and Cartography</strong></a></li>
 								</ul>
@@ -230,7 +286,7 @@
 					<footer>
 						<ul class="buttons">
 							
-							<li><a href="http://www.gmail.com" class="button">Email</a></li>
+							<li><a href="contact.html" class="button">Email</a></li>
 						</ul>
 					</footer>
 
@@ -240,11 +296,11 @@
 				<footer id="footer">
 
 					<ul class="icons">
-						<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
-						<li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="https://www.twitter.com" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.Facebook.com" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.Google.com" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
+						<li><a href="https://www.Github.com" class="icon circle fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://www.Dribbble.com" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
 					</ul>
 
 					<ul class="copyright">
