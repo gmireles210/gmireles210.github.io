@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#map {
+				width: 100%;
+				height: 400px;
+				background-color: grey;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h3> My <strong>Google</strong> Demo</h3>
+		<div id="map"></div>
+		<script>
+			//this function starts up the map
+			function initMap() {
+				
+				//a variable for Tacoma
+				var tacoma = {lat: 47.2446, lng: -122.4376};
+				
+				//The Map! Get the HTML element named 'map'
+				var map = new google.maps.Map(document.getElementById('map'), {
+					//set the zoom to 4
+					zoom: 4,
+					//set the center on the Tacoma variable 
+					center: tacoma,
+					//turn OFF the zoom control
+					zoomControl: false,
+					//Make it so you have to hold CTRL to zoom
+					gestureHandling: 'cooperative',
+					//Turn ON the map type controls (satellite/roads view)
+					mapTypeControl: true,
+					//Change the map type controls to be on the bottom left in a horizontal row
+					mapTypeControlOptions :{
+						style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+						position: google.maps.ControlPosition.BOTTOM_LEFT
+					}
+					});
+				
+				//A marker for Tacoma
+				var marker = new google.maps.Marker({
+					position: tacoma,
+					map: map,
+					label: "University of Washington Tacoma"
+				});
+				
+			}
+		</script>
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXvJ72oaaTTtLCj5XYS2EcPyMtEb1kyWQ&callback=initMap">
+		</script>
+	</body>
+
+
+</html>
