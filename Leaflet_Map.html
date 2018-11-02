@@ -39,11 +39,18 @@
       
     }).addTo(map);
 
-    // load GeoJSON from an internal file
-   var data = ".assets/wa_lrg_fires.json";
-        map.data.loadGeoJson(data);
-      
-      //add the geojson stations to the map
+    
+  //add a local geojson file
+      //Thanks to https://www.igismap.com/add-load-geojson-file-point-polyline-polygon-map-leaflet-js/ for the tutorial
+      $.getJSON("wa_lrg_fires.json",function(data){
+      // add GeoJSON layer to the map once the file is loaded
+      var datalayer = L.geoJson(data ,{
+        onEachFeature: function(feature, featureLayer) {
+          featureLayer.bindPopup();
+        }
+      }).addTo(map);
+      map.fitBounds(datalayer.getBounds());
+      });
      
   </script>
 </body>
