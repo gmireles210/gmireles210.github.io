@@ -31,6 +31,39 @@
 
   <script>
   // initialize the map
+  <html>
+<head>
+  <title>My Leaflet Map!</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+       integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+       crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+       integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+       crossorigin=""></script>
+  
+      <script src="jquery-2.1.1.min.js"></script> 
+
+
+  <style>
+     
+  #map {
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+  }
+  </style>
+
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script>
+  // initialize the map
   var map = L.map('map').setView([47.2529,-122.4443], 12)
   // load a tile layer (base map)
   L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
@@ -40,9 +73,11 @@
     }).addTo(map);
 
     // load GeoJSON from an internal file
-  var data = "assets/map.geojson";
-        map.data.loadGeoJson(data);
-
+   var USA = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[[[-122.6953125,49.03786794532644],[-125.33203125,48.22467264956519],[-126.03515625,43.58039085560784],[-124.8046875,37.020098201368114],[-121.11328124999999,33.87041555094183],[-116.89453125,31.203404950917395],[-110.390625,30.600093873550072],[-104.765625,28.304380682962783],[-99.31640625,24.686952411999155],[-95.2734375,26.902476886279832],[-86.66015624999999,28.92163128242129],[-82.08984375,24.5271348225978],[-79.1015625,25.799891182088334],[-80.15625,30.90222470517144],[-75.9375,33.87041555094183],[-71.19140625,42.16340342422401],[-65.7421875,44.213709909702054],[-66.26953125,47.87214396888731],[-73.47656249999999,45.9511496866914],[-84.0234375,46.800059446787316],[-94.39453125,49.26780455063753],[-122.6953125,49.03786794532644]]]}}]}
+      
+      //add the geojson stations to the map
+      L.geoJSON(USA).addTo(map);
+ 
       //add the geojson stations to the map
   
 
