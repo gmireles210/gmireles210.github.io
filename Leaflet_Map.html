@@ -39,7 +39,7 @@
       
     }).addTo(map);
 
-    $.getJSON("Watershed1.geojson",function(data){
+    $.getJSON("Watershed_Project_FeaturesT.json",function(data){
 // add GeoJSON layer to the map once the file is loaded
 var datalayer = L.geoJson(data ,{
 onEachFeature: function(feature, featureLayer) {
