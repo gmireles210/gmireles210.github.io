@@ -39,11 +39,11 @@
       
     }).addTo(map);
 
-    $.getJSON("Watershed.json",function(data){
+    $.getJSON("Watersheds.json",function(data){
 // add GeoJSON layer to the map once the file is loaded
 var datalayer = L.geoJson(data ,{
 onEachFeature: function(feature, featureLayer) {
-featureLayer.bindPopup(feature.properties.geometry);
+featureLayer.bindPopup(feature.properties.WRP_NAME);
 }
 }).addTo(map);
 map.fitBounds(datalayer.getBounds());
