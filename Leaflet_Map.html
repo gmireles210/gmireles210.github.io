@@ -43,7 +43,7 @@
 // add GeoJSON layer to the map once the file is loaded
 var datalayer = L.geoJson(data ,{
 onEachFeature: function(feature, featureLayer) {
-featureLayer.bindPopup(feature.properties.geometry);
+featureLayer.bindPopup(feature.properties.properties);
 }
 }).addTo(map);
 map.fitBounds(datalayer.getBounds());
