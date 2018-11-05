@@ -39,7 +39,7 @@
       
     }).addTo(map);
 
-    $.getJSON("Flood.geojson","Parcels.geojson",function(data){
+    $.getJSON("Parcels.geojson",function(data){
 // add GeoJSON layer to the map once the file is loaded
 var datalayer = L.geoJson(data ,{
 onEachFeature: function(feature, featureLayer) {
