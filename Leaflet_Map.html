@@ -50,7 +50,7 @@ featureLayer.bindPopup(feature.properties.CREEK);
 map.fitBounds(datalayer.getBounds());
 });
     
-        $.getJSON("Map.geojson",function(data){
+        $.getJSON("map.geojson",function(data){
 // add GeoJSON layer to the map once the file is loaded
 var datalayer = L.geoJson(data ,{
 onEachFeature: function(feature, featureLayer) {
