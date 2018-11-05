@@ -42,6 +42,7 @@
     $.getJSON("CityLimit.geojson",function(data){
 // add GeoJSON layer to the map once the file is loaded
 var datalayer = L.geoJson(data ,{
+      color: 'red',
 onEachFeature: function(feature, featureLayer) {
 featureLayer.bindPopup(feature.properties.SHAPE_AREA);
 }
@@ -50,7 +51,7 @@ featureLayer.bindPopup(feature.properties.SHAPE_AREA);
 map.fitBounds(datalayer.getBounds());
 });
  
- // add GeoJSON layer to the map once the file is loaded
+ // add GeoJSON layer to the map using another technique
     function addDataToMap(data, map) {
     var dataLayer = L.geoJson(data);
     dataLayer.addTo(map);
