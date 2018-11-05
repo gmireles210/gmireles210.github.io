@@ -50,6 +50,13 @@ featureLayer.bindPopup(feature.properties.SHAPE_AREA);
 map.fitBounds(datalayer.getBounds());
 });
     
+    function addDataToMap(data, map) {
+    var dataLayer = L.geoJson(data);
+    dataLayer.addTo(map);
+}
+
+$.getJSON("Flood.geojson", function(data) { addDataToMap(data, map); });
+    
     
   </script>
 </body>
