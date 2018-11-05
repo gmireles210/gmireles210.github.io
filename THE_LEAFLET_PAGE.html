@@ -40,14 +40,52 @@
 							<!-- Content -->
 								<div class="content">
 									<section>
-										<a href="images/My_Pic.webp" class="image featured"><img src="images/My_Pic.webp" alt="Me" /></a>
-										<header>
-											<h3>Background</h3>
-										</header>
-										<p>My name is Greg Mireles and I am originally from San Antonio, Texas. I am a U.S. Army Veteran with 10 years of Active Duty Service. In the Army, I was a Special Operations Communications Sergeant and a Telecommunications Operations Chief, which is where I developed and honed my technological skill set. I have had multiple combat deployments overseas, mainly Afghanistan, Iraq, and Africa. I exited the Military in December of 2013 and immediately moved to New York, where my new job was at with Harris Corporation, RF Division.
-										</p>
-										<p>While at Harris, I was a Technical Trainer 2, where I flew around the world training customers on Advanced Radio Communications. After a year in this capacity, I decided that I needed to attend college to finsih my undergraduate degree. At this point, I resigned from Harris and moved to Tacoma, WA to pursue my educational goals. </p>
-										<p>In the summer of 2018, I graduated from The University of Washington Tacoma, with a Bachelor of Arts in Sustainable Urban Development, with a concentration in Geographic Information Systems. Currently I am enrolled at UWT, but this time is for Graduate School where I am a student in the Master of Science in Geospatial Technologies program. This page is designed to showcase my labs, projects, and Capstone Project for the MSGT program. Thank you for taking the time to read this and I hope you enjoy the site!</p>
+										<style>
+     
+  #map {
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+  }
+  </style>
+
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <script>
+  // initialize the map
+  var map = L.map('map').setView([40.0150,-105.2705], 12)
+  // load a tile layer (base map)
+  L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 18,
+      
+    }).addTo(map);
+    $.getJSON("Flood.geojson",function(data){
+// add GeoJSON layer to the map once the file is loaded
+var datalayer = L.geoJson(data ,{
+  color: 'red',
+onEachFeature: function(feature, featureLayer) {
+featureLayer.bindPopup(feature.properties.CREEK);
+}
+  
+}).addTo(map);
+map.fitBounds(datalayer.getBounds());
+});
+ 
+ // add GeoJSON layer to the map using another technique
+    function addDataToMap(data, map) {
+    var dataLayer = L.geoJson(data);
+    dataLayer.addTo(map);
+}
+$.getJSON("CityLimit.geojson", function(data) { addDataToMap(data, map); });
+    
+    
+  </script>
 									</section>
 								</div>
 
