@@ -39,11 +39,11 @@
       
     }).addTo(map);
 
-    $.getJSON("Flood.geojson",function(data){
+    $.getJSON("SubDiv.geojson",function(data){
 // add GeoJSON layer to the map once the file is loaded
 var datalayer = L.geoJson(data ,{
 onEachFeature: function(feature, featureLayer) {
-featureLayer.bindPopup(feature.properties.CREEK);
+featureLayer.bindPopup(feature.properties.SUBDIV);
 }
   
 }).addTo(map);
