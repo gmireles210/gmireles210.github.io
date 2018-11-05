@@ -49,7 +49,8 @@ featureLayer.bindPopup(feature.properties.SHAPE_AREA);
 }).addTo(map);
 map.fitBounds(datalayer.getBounds());
 });
-    
+ 
+ // add GeoJSON layer to the map once the file is loaded
     function addDataToMap(data, map) {
     var dataLayer = L.geoJson(data);
     dataLayer.addTo(map);
