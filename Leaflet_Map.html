@@ -39,11 +39,11 @@
       
     }).addTo(map);
 
-    $.getJSON("Sub.json",function(data){
+    $.getJSON("CityLimit.geojson",function(data){
 // add GeoJSON layer to the map once the file is loaded
 var datalayer = L.geoJson(data ,{
 onEachFeature: function(feature, featureLayer) {
-featureLayer.bindPopup(feature.properties.SUBDIV);
+featureLayer.bindPopup(feature.properties.SHAPE_AREA);
 }
   
 }).addTo(map);
