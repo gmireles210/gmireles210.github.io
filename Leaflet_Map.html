@@ -39,7 +39,7 @@
       
     }).addTo(map);
 
-    $.getJSON("SubDiv.geojson",function(data){
+    $.getJSON("Sub.json",function(data){
 // add GeoJSON layer to the map once the file is loaded
 var datalayer = L.geoJson(data ,{
 onEachFeature: function(feature, featureLayer) {
