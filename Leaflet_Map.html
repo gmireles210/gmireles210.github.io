@@ -54,8 +54,6 @@ map.fitBounds(datalayer.getBounds());
  // add GeoJSON layer to the map using another technique
     function addDataToMap(data, map) {
     var dataLayer = L.geoJson(data, {
-      onEachFeature: function(feature, featureLayer) {
-featureLayer.bindPopup(feature.properties.CREEK);
     dataLayer.addTo(map);
 }
 
