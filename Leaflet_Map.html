@@ -49,6 +49,18 @@ featureLayer.bindPopup(feature.properties.CREEK);
 }).addTo(map);
 map.fitBounds(datalayer.getBounds());
 });
+    
+        $.getJSON("Parcels.geojson",function(data){
+// add GeoJSON layer to the map once the file is loaded
+var datalayer = L.geoJson(data ,{
+onEachFeature: function(feature, featureLayer) {
+featureLayer.bindPopup(feature.properties.CREEK);
+}
+  
+}).addTo(map);
+map.fitBounds(datalayer.getBounds());
+});
+    
   </script>
 </body>
 </html>
