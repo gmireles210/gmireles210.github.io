@@ -82,24 +82,7 @@
       maxZoom: 18,
       
     }).addTo(map);
-    $.getJSON("HistoricBoulder.geojson",function(data){
-// add GeoJSON layer to the map once the file is loaded
-var datalayer = L.geoJson(data ,{
-  color: 'red',
-onEachFeature: function(feature, featureLayer) {
-featureLayer.bindPopup(feature.properties.NAME);
-}
-  
-}).addTo(map);
-map.fitBounds(datalayer.getBounds());
-});
- 
- // add GeoJSON layer to the map using another technique
-    function addDataToMap(data, map) {
-    var dataLayer = L.geoJson(data);
-    dataLayer.addTo(map);
-}
-$.getJSON("Flood.geojson", function(data) { addDataToMap(data, map); });
+   
 	  
 //add a KML layer - uses cors-anywhere to bypass the CORS restrictions on NOAA. TEMPORARY WORKAROUND, Eventually need to hook up a server instead of doing it this way. 
             var datalayer = omnivore.kml('https://cors-anywhere.herokuapp.com/https://www.wpc.ncep.noaa.gov/kml/winwx/HPC_Day1-3_psnow_gt_04_latest.kml')
@@ -147,7 +130,7 @@ $.getJSON("Flood.geojson", function(data) { addDataToMap(data, map); });
         cursor: pointer;
         position: absolute;
         left: 14.1em;
-        top: 48.3em;
+        top: 46.3em;
     }
     #remover:hover {
         background-color: #4bdaf7;
@@ -162,7 +145,7 @@ $.getJSON("Flood.geojson", function(data) { addDataToMap(data, map); });
         cursor: pointer;
         position: absolute;
         left: 14.1em;
-        top: 51.0em;
+        top: 49.0em;
     }
     #pr:hover {
         background-color: #4bdaf7;
