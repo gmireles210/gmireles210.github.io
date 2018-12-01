@@ -93,62 +93,48 @@ L.Control.zoomHome = L.Control.extend({
         zoomHomeText: '<i class="fa fa-home" style="line-height:1.65;"></i>',
         zoomHomeTitle: 'Zoom home'
     },
-
     onAdd: function (map) {
         var controlName = 'gin-control-zoom',
             container = L.DomUtil.create('div', controlName + ' leaflet-bar'),
             options = this.options;
-
         this._zoomInButton = this._createButton(options.zoomInText, options.zoomInTitle,
         controlName + '-in', container, this._zoomIn);
         this._zoomHomeButton = this._createButton(options.zoomHomeText, options.zoomHomeTitle,
         controlName + '-home', container, this._zoomHome);
         this._zoomOutButton = this._createButton(options.zoomOutText, options.zoomOutTitle,
         controlName + '-out', container, this._zoomOut);
-
         this._updateDisabled();
         map.on('zoomend zoomlevelschange', this._updateDisabled, this);
-
         return container;
     },
-
     onRemove: function (map) {
         map.off('zoomend zoomlevelschange', this._updateDisabled, this);
     },
-
     _zoomIn: function (e) {
         this._map.zoomIn(e.shiftKey ? 3 : 1);
     },
-
     _zoomOut: function (e) {
         this._map.zoomOut(e.shiftKey ? 3 : 1);
     },
-
     _zoomHome: function (e) {
         map.setView([lat, lng], zoom);
     },
-
     _createButton: function (html, title, className, container, fn) {
         var link = L.DomUtil.create('a', className, container);
         link.innerHTML = html;
         link.href = '#';
         link.title = title;
-
         L.DomEvent.on(link, 'mousedown dblclick', L.DomEvent.stopPropagation)
             .on(link, 'click', L.DomEvent.stop)
             .on(link, 'click', fn, this)
             .on(link, 'click', this._refocusOnMap, this);
-
         return link;
     },
-
     _updateDisabled: function () {
         var map = this._map,
             className = 'leaflet-disabled';
-
         L.DomUtil.removeClass(this._zoomInButton, className);
         L.DomUtil.removeClass(this._zoomOutButton, className);
-
         if (map._zoom === map.getMinZoom()) {
             L.DomUtil.addClass(this._zoomOutButton, className);
         }
@@ -170,7 +156,7 @@ zoomHome.addTo(map);
    
 	  
 //add a KML layer - uses cors-anywhere to bypass the CORS restrictions on NOAA. TEMPORARY WORKAROUND, Eventually need to hook up a server instead of doing it this way. 
-            var datalayer = omnivore.kml('Major_Rivers.kml')
+            var datalayer = omnivore.kml('https://cors-anywhere.herokuapp.com/https://www.wpc.ncep.noaa.gov/kml/winwx/HPC_Day1-3_psnow_gt_04_latest.kml')
                 .on('ready', function() {
                     map.fitBounds(datalayer.getBounds());
                 })
@@ -204,7 +190,6 @@ zoomHome.addTo(map);
 
 
 <style>
-
  #remover {
         margin: 0 auto;
         background-color: #4bdaf7;
@@ -235,7 +220,6 @@ zoomHome.addTo(map);
     #pr:hover {
         background-color: #4bdaf7;
     }
-
 </style>
 
 
@@ -265,7 +249,6 @@ zoomHome.addTo(map);
                     center: [-66.105721, 18.200178],
             zoom: 5.0
             });
-
                 newmap.scrollZoom.enable();
                 newmap.addControl(new MapboxGeocoder({
                     accessToken: mapboxgl.accessToken
