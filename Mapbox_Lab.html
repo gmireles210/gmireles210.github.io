@@ -155,18 +155,15 @@ zoomHome.addTo(map);
     }).addTo(map);
    
 	  
-//add a local geojson file
-			//Thanks to https://www.igismap.com/add-load-geojson-file-point-polyline-polygon-map-leaflet-js/ for the tutorial
-			$.getJSON("AK_Cities.geojson",function(data){
-			// add GeoJSON layer to the map once the file is loaded
-			var datalayer = L.geoJson(data ,{
-				onEachFeature: function(feature, featureLayer) {
-					featureLayer.bindPopup(feature.properties.name);
-				}
-			}).addTo(map);
-			map.fitBounds(datalayer.getBounds());
-			});
-		</script>
+//add a KML layer - uses cors-anywhere to bypass the CORS restrictions on NOAA. TEMPORARY WORKAROUND, Eventually need to hook up a server instead of doing it this way. 
+            var datalayer = omnivore.kml('Major_Rivers.kml')
+                .on('ready', function() {
+                    map.fitBounds(datalayer.getBounds());
+                })
+            .addTo(map);
+    
+    
+  </script>
 
 
 
@@ -260,7 +257,7 @@ zoomHome.addTo(map);
                 newmap.on('load', function(){
                     newmap.addSource('earthquakes', {
                         "type": "geojson",
-                        "data": "https://opendata.arcgis.com/datasets/44a436867c4a458f9e40e0d751c53bc3_0.geojson"
+                        "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
                     });
                     newmap.addLayer({
                         "id":"equakes",
