@@ -261,9 +261,17 @@ zoomHome.addTo(map);
                     });
 			
                    newmap.addLayer({
-                       
-                      {"renderer":{"type":"simple","symbol":{"type":"esriSFS","style":"esriSFSSolid","color":[255,211,127,255],"outline":{"type":"esriSLS","style":"esriSLSNull","color":[110,110,110,255],"width":0}},"label":"","description":""},"transparency":0,"labelingInfo":null}
-                    });
+                      "id":"equakes",
+                        "type":"circle",
+                        "source":"earthquakes",
+			     "paint": {
+                            "circle-color": "#4bdaf7",
+                            "circle-opacity": 0.5,
+                            "circle-radius": 10,
+                            "circle-stroke-color": '#FF4500',
+                            "circle-stroke-width": 1,
+                            "circle-stroke-opacity": 0.75
+                        }
                //add a handler for clicking/popups 
                 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/ 
                 newmap.on('click', 'equakes', function (e) {
