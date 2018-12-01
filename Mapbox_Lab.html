@@ -257,14 +257,13 @@ zoomHome.addTo(map);
                 newmap.on('load', function(){
                     newmap.addSource('earthquakes', {
                         "type": "geojson",
-                        "data": "https://opendata.arcgis.com/datasets/44a436867c4a458f9e40e0d751c53bc3_0.geojson"
+                        "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
                     });
-			
-                   newmap.addLayer({
-                      "id":"equakes",
+                    newmap.addLayer({
+                        "id":"equakes",
                         "type":"circle",
                         "source":"earthquakes",
-			     "paint": {
+                        "paint": {
                             "circle-color": "#4bdaf7",
                             "circle-opacity": 0.5,
                             "circle-radius": 10,
@@ -272,6 +271,7 @@ zoomHome.addTo(map);
                             "circle-stroke-width": 1,
                             "circle-stroke-opacity": 0.75
                         }
+                    });
                //add a handler for clicking/popups 
                 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/ 
                 newmap.on('click', 'equakes', function (e) {
@@ -322,7 +322,6 @@ zoomHome.addTo(map);
     });
 });        
 </script>
-
 </body>
 </div>
 	</head>
