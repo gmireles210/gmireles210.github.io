@@ -170,7 +170,7 @@ zoomHome.addTo(map);
    
 	  
 //add a KML layer - uses cors-anywhere to bypass the CORS restrictions on NOAA. TEMPORARY WORKAROUND, Eventually need to hook up a server instead of doing it this way. 
-            var datalayer = omnivore.kml('https://cors-anywhere.herokuapp.com/https://www.wpc.ncep.noaa.gov/kml/winwx/HPC_Day1-3_psnow_gt_04_latest.kml')
+            var datalayer = omnivore.kml('Major_Rivers.kml')
                 .on('ready', function() {
                     map.fitBounds(datalayer.getBounds());
                 })
