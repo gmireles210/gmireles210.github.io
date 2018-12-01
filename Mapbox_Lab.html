@@ -261,10 +261,8 @@ zoomHome.addTo(map);
                     });
 			
                    newmap.addLayer({
-                        "id":"equakes",
-                        "type":"polygon",
-                        "source":"earthquakes",
-                      
+                       
+                      {"renderer":{"type":"simple","symbol":{"type":"esriSFS","style":"esriSFSSolid","color":[255,211,127,255],"outline":{"type":"esriSLS","style":"esriSLSNull","color":[110,110,110,255],"width":0}},"label":"","description":""},"transparency":0,"labelingInfo":null}
                     });
                //add a handler for clicking/popups 
                 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/ 
