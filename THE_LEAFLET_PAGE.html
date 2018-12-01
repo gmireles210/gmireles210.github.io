@@ -86,12 +86,6 @@ featureLayer.bindPopup(feature.properties.NAME);
 map.fitBounds(datalayer.getBounds());
 });
  
- // add GeoJSON layer to the map using another technique
-    function addDataToMap(data, map) {
-    var dataLayer = L.geoJson(data);
-    dataLayer.addTo(map);
-}
-$.getJSON("CityLimit.geojson", function(data) { addDataToMap(data, map); });
     
     
   </script>
