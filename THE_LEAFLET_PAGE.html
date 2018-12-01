@@ -74,12 +74,12 @@
       maxZoom: 18,
       
     }).addTo(map);
-    $.getJSON("Flood.geojson",function(data){
+    $.getJSON("Major_Rivers.geojson",function(data){
 // add GeoJSON layer to the map once the file is loaded
 var datalayer = L.geoJson(data ,{
   color: 'red',
 onEachFeature: function(feature, featureLayer) {
-featureLayer.bindPopup(feature.properties.CREEK);
+featureLayer.bindPopup(feature.properties.NAME);
 }
   
 }).addTo(map);
