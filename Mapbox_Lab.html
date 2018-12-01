@@ -155,15 +155,21 @@ zoomHome.addTo(map);
     }).addTo(map);
    
 	  
-//add a KML layer - uses cors-anywhere to bypass the CORS restrictions on NOAA. TEMPORARY WORKAROUND, Eventually need to hook up a server instead of doing it this way. 
-            var datalayer = omnivore.kml('mv_cities.kml')
-                .on('ready', function() {
-                    map.fitBounds(datalayer.getBounds());
-                })
-            .addTo(map);
-    
-    
-  </script>
+var runLayer = omnivore.kml('mv_cities/name.kml')
+    .on('ready', function() {
+        map.fitBounds(runLayer.getBounds());
+
+        // After the 'ready' event fires, the GeoJSON contents are accessible
+        // and you can iterate through layers to bind custom popups.
+        runLayer.eachLayer(function(layer) {
+            // See the `.bindPopup` documentation for full details. This
+            // dataset has a property called `name`: your dataset might not,
+            // so inspect it and customize to taste.
+            layer.bindPopup(layer.feature.properties.name);
+        });
+    })
+    .addTo(map);
+</script>
 
 
 
