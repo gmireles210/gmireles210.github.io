@@ -259,7 +259,7 @@ zoomHome.addTo(map);
                         "type": "geojson",
                         "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
                     });
-                    newmap.addLayer({
+                    map.addLayer({
         "id": "earthquakes-heat",
         "type": "heatmap",
         "source": "earthquakes",
@@ -315,7 +315,7 @@ zoomHome.addTo(map);
         }
     }, 'waterway-label');
 
-    newmap.addLayer({
+    map.addLayer({
         "id": "earthquakes-point",
         "type": "circle",
         "source": "earthquakes",
