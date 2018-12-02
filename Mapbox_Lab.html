@@ -155,17 +155,12 @@ zoomHome.addTo(map);
     }).addTo(map);
    
 	  
-//add a local geojson file
-			//Thanks to https://www.igismap.com/add-load-geojson-file-point-polyline-polygon-map-leaflet-js/ for the tutorial
-			$.getJSON("AK_Cities.geojson",function(data){
-			// add GeoJSON layer to the map once the file is loaded
-			var datalayer = L.geoJson(data ,{
-				onEachFeature: function(feature, featureLayer) {
-					featureLayer.bindPopup(feature.properties.name);
-				}
-			}).addTo(map);
-			map.fitBounds(datalayer.getBounds());
-			});
+//add a KML layer - uses cors-anywhere to bypass the CORS restrictions on NOAA. TEMPORARY WORKAROUND, Eventually need to hook up a server instead of doing it this way. 
+			var dailysnow = omnivore.kml('https://cors-anywhere.herokuapp.com/https://www.wpc.ncep.noaa.gov/kml/winwx/HPC_Day1-3_psnow_gt_04_latest.kml')
+				.on('ready', function() {
+			        map.fitBounds(dailysnow.getBounds());
+			    })
+			.addTo(map);
     
     
   </script>
