@@ -238,7 +238,7 @@ zoomHome.addTo(map);
 			// add GeoJSON layer to the map once the file is loaded
 			var datalayer = L.geoJson(data ,{
 				onEachFeature: function(feature, featureLayer) {
-					featureLayer.bindPopup(feature.properties.name);
+					featureLayer.bindPopup(feature.properties.text);
 				}
 			}).addTo(map);
 			map.fitBounds(datalayer.getBounds());
