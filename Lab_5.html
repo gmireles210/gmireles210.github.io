@@ -9,7 +9,7 @@
 
 
 										
-		<title>Lab 4: Live Geojson/KML/KMZ Data</title>
+		<title>Lab 5: A Web-Based Story Map</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -17,19 +17,18 @@
 
 
 
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
-   integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
-   crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
-   integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
-   crossorigin=""></script>
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="leaflet.heat.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+       integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+       crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+       integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+       crossorigin=""></script>
 											
 	<!-- the Omnivore plugin to convert KML to GeoJSON -->
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>										
   
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
@@ -52,21 +51,22 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<header id="header">
-					<h1 id="logo">MSGT <span>by Greg Mireles</span></a></h1>
-					<nav id="nav">
-						<ul>
-							<li class="current"><a href="index.html">Home Page</a></li>
+		<header id="header">
+			<h1 id="logo">MSGT <span>by Greg Mireles</span></a></h1>
+				<nav id="nav">
+			<ul>
+			<li class="current"><a href="index.html">Home Page</a></li>
 
-					</nav>
-				</header>
+				</nav>
+		</header>
 
 			<!-- Main -->
 				<article id="main">
 
 					<header class="special container">
 						<span class="icon fa-laptop"></span>
-						<h2>An overview of Alaskan Earthquakes <strong>in a Web-based Story Map</strong></h2>
+						<h2><strong>Lab 5:</strong><br>
+							An overview of Alaskan Earthquakes <strong>in a Web-based Story Map</strong></h2>
 						
 					</header>
 
@@ -125,11 +125,12 @@
 
 										</div>
 
-								</div>
-								<div class="col-8 col-12-narrower imp-narrower">
+										</div>
+								
+<div class="col-8 col-12-narrower imp-narrower">
 
-									<!-- Content -->
-										<div class="content">
+<!-- Content -->
+<div class="content">
 
 			<header>
 			<h3>
@@ -137,9 +138,9 @@
 			</h3>
 			</header>
 
-<div id="map"style="width: 680px; height: 400px"></div>
+<div id="map"style="width: 800px; height: 400px"></div>
 
-  <script>
+<script>
 	  
 var lat = 39.056198;
 var lng = -95.695312;
@@ -219,19 +220,6 @@ zoomHome.addTo(map);
       maxZoom: 18,
       
     }).addTo(map);
-
-    map.setZoom(12);
-  $.getJSON("AK_Cities.geojson",function(data){
-    var locations = data.features.map(function(Cities) {
-      // the heatmap plugin wants an array of each location
-      var location = Cities.geometry.coordinates.reverse();
-      location.push(0.5);
-      return location; // e.g. [50.5, 30.5, 0.2], // lat, lng, intensity
-    });
-
-    var heat = L.heatLayer(locations, { radius: 35 });
-    map.addLayer(heat);
-  });
    
 	  
 //add a local geojson file
@@ -249,14 +237,17 @@ zoomHome.addTo(map);
     
   </script>
 
-													<h3>Cities Near Earthquake Prone Area's</h3>
-												</header>
-												<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum massa. Morbi eu faucibus massa. Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
-												<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique. Sed id sem et massa ornare pellentesque. Maecenas pharetra porta accumsan. </p>
-												<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus, non hendrerit ipsum arcu tristique est.</p>
+					<h3>Cities Near Earthquake Prone Area's</h3>
+				</header>
+	
+	
+						<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum massa. Morbi eu faucibus massa. Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
+						<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique. Sed id sem et massa ornare pellentesque. Maecenas pharetra porta accumsan. </p>
+						<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus, non hendrerit ipsum arcu tristique est.</p>
 
-												<div> 
-	<style>
+				<div>
+					
+<style>
         
         #newmap {
           width: 100%;
@@ -307,7 +298,8 @@ zoomHome.addTo(map);
 <br>    
 <br>
 		<div class="content">
-									<section>
+			
+	<section>
 
 			<header>
 			<h3>
@@ -324,7 +316,7 @@ zoomHome.addTo(map);
                 //The map variable
                 var newmap = new mapboxgl.Map({
                     container: 'newmap',
-                    style: 'mapbox://styles/gmireles210/cjp7mowck2p282smnpizxk8i6',
+                   style: 'mapbox://styles/gmireles210/cjp7mowck2p282smnpizxk8i6',
                     center: [-149.9003, 61.2181],
             zoom: 6.0
             });
@@ -336,7 +328,7 @@ zoomHome.addTo(map);
                 newmap.on('load', function(){
                     newmap.addSource('earthquakes', {
                         "type": "geojson",
-                        "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson"
+                        "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
                     });
                     newmap.addLayer({
                         "id":"equakes",
@@ -393,7 +385,7 @@ zoomHome.addTo(map);
                         }
                     });
     //home button
-    var pr = document.getElementById('pr');
+     var pr = document.getElementById('pr');
     pr.addEventListener("click", function(){
         newmap.setCenter([-66.105721, 18.200178]);
         newmap.setZoom(5);
@@ -404,76 +396,30 @@ zoomHome.addTo(map);
 </body>
 </div>
 	</head>
-										<header>
-											<h3>Background</h3>
-										</header>
-										<p>The above map was designed using Mapbox Studio. The map is displaying live GeoJSON data of weekly earthquakes in Puerto Rico. The data is coming from a USGS live feed summary that constantly updates itself by fetching data from USGS, as specified by the code running in the background. The map has the functionality to search for a place, pan and zoom, re-center on Puerto Rico, toggle on and off the earthquake data, and the ability to click each earthquake icon to display unique data about each. Thank you for taking the time to read and interact with my maps.
-										</p>
-									</section>
-								</div>
+					
+		<header>
+		<h3>Background</h3>
+		</header>
+			<p>The above map was designed using Mapbox Studio. The map is displaying live GeoJSON data of weekly earthquakes in Puerto Rico. The data is coming from a USGS live feed summary that constantly updates itself by fetching data from USGS, as specified by the code running in the background. The map has the functionality to search for a place, pan and zoom, re-center on Puerto Rico, toggle on and off the earthquake data, and the ability to click each earthquake icon to display unique data about each. Thank you for taking the time to read and interact with my maps.
+			</p>
+					
+		</section>
+	
+</div>
 
-						</section>
-											</section>
+		</section>
+		</section>
 
 
-										</div>
+</div>
 
-								</div>
-							</div>
-						</section>
+</div>
+</div>
+	
+		</section>
 
-					<!-- Two -->
-						<section class="wrapper style1 container special">
-							<div class="row">
-								<div class="col-4 col-12-narrower">
+<!-- Two -->
 
-									<section>
-										<header>
-											<h3>This is Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-narrower">
-
-									<section>
-										<header>
-											<h3>Also Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
-									</section>
-
-								</div>
-								<div class="col-4 col-12-narrower">
-
-									<section>
-										<header>
-											<h3>Probably Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
-									</section>
-
-								</div>
-							</div>
-						</section>
-
-				</article>
 
 				<!-- Footer -->
 				<footer id="footer">
@@ -491,8 +437,7 @@ zoomHome.addTo(map);
 					</ul>
 
 				</footer>
-
-		</div>
+</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -504,7 +449,6 @@ zoomHome.addTo(map);
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="assests/js/leaflet.heat.js"></script>
 
 	</body>
 </html>
