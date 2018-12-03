@@ -30,8 +30,8 @@
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -330,63 +330,19 @@ zoomHome.addTo(map);
                         "type": "geojson",
                         "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
                     });
-                 newmap.addLayer({
-  id: 'trees-heat',
-  type: 'heatmap',
-  source: 'earthquakes',
-  maxzoom: 15,
-  paint: {
-    // increase weight as diameter breast height increases
-    'heatmap-weight': {
-      property: 'dbh',
-      type: 'exponential',
-      stops: [
-        [1, 0],
-        [62, 1]
-      ]
-
-                   newmap.addLayer({
-  id: 'trees-point',
-  type: 'circle',
-  source: 'earthquakes',
-  minzoom: 14,
-  paint: {
-    // increase the radius of the circle as the zoom level and dbh value increases
-    'circle-radius': {
-      property: 'dbh',
-      type: 'exponential',
-      stops: [
-        [{ zoom: 15, value: 1 }, 5],
-        [{ zoom: 15, value: 62 }, 10],
-        [{ zoom: 22, value: 1 }, 20],
-        [{ zoom: 22, value: 62 }, 50],
-      ]
-    },
-    'circle-color': {
-      property: 'dbh',
-      type: 'exponential',
-      stops: [
-        [0, 'rgba(236,222,239,0)'],
-        [10, 'rgb(236,222,239)'],
-        [20, 'rgb(208,209,230)'],
-        [30, 'rgb(166,189,219)'],
-        [40, 'rgb(103,169,207)'],
-        [50, 'rgb(28,144,153)'],
-        [60, 'rgb(1,108,89)']
-      ]
-    },
-    'circle-stroke-color': 'white',
-    'circle-stroke-width': 1,
-    'circle-opacity': {
-      stops: [
-        [14, 0],
-        [15, 1]
-      ]
-    }
-  }
-}, 'waterway-label');
-		});
-			
+                    newmap.addLayer({
+                        "id":"equakes",
+                        "type":"circle",
+                        "source":"earthquakes",
+                        "paint": {
+                            "circle-color": "#f39933",
+                            "circle-opacity": 0.5,
+                            "circle-radius": 10,
+                            "circle-stroke-color": '#6CCD51',
+                            "circle-stroke-width": 1,
+                            "circle-stroke-opacity": 0.75
+                        }
+                    });
                //add a handler for clicking/popups 
                 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/ 
                 newmap.on('click', 'equakes', function (e) {
@@ -496,3 +452,4 @@ zoomHome.addTo(map);
 
 	</body>
 </html>
+
