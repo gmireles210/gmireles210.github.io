@@ -25,8 +25,8 @@
        integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
        crossorigin=""></script>
 											
-	<!-- the Omnivore plugin to convert KML to GeoJSON -->
-    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>										
+	<!-- Leaflet Heat Remember you need to download and save this file!-->
+	<script src="Leaflet.heat/dist/leaflet-heat.js"></script>										
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 
@@ -226,13 +226,18 @@ zoomHome.addTo(map);
 			//Thanks to https://www.igismap.com/add-load-geojson-file-point-polyline-polygon-map-leaflet-js/ for the tutorial
 			$.getJSON("AK_Cities.geojson",function(data){
 			// add GeoJSON layer to the map once the file is loaded
-			var datalayer = L.geoJson(data ,{
-				onEachFeature: function(feature, featureLayer) {
-					featureLayer.bindPopup(feature.properties.name);
-				}
-			}).addTo(map);
-			map.fitBounds(datalayer.getBounds());
-			});
+			var locations = data.features.map(function(points) {
+			      // the heatmap plugin wants an array of each location
+			      var location = points.geometry.coordinates.reverse();
+			      location.push(1);
+			      return location; // e.g. [50.5, 30.5, 0.2], // lat, lng, intensity
+		    });
+
+			//make the heatmap layer
+		    var heat = L.heatLayer(locations, { radius: 35 });
+		    //add the heatmap layer to the map
+		    map.addLayer(heat);
+		  });
     
     
   </script>
