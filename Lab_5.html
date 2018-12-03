@@ -262,10 +262,10 @@ zoomHome.addTo(map);
 <style>
  #remover {
         margin: 0 auto;
-        background-color: #4bdaf7;
+        background-color: #f39933;
         color: 'black';
         padding: 0.1em;
-        border: 2px solid #d541e0;
+        border: 2px solid #6CCD51;
         border-radius: 0.3em;
         cursor: pointer;
         position: absolute;
@@ -273,14 +273,14 @@ zoomHome.addTo(map);
         top: 93.8em;
     }
     #remover:hover {
-        background-color: #4bdaf7;
+        background-color: #f39933;
     }
     #pr {
         margin: 0 auto;
-        background-color: #4bdaf7;
+        background-color: #f39933;
         color: 'black';
         padding: 0.1em;
-        border: 2px solid #d541e0;
+        border: 2px solid #6CCD51;
         border-radius: 0.3em;
         cursor: pointer;
         position: absolute;
@@ -288,7 +288,7 @@ zoomHome.addTo(map);
         top: 96.5em;
     }
     #pr:hover {
-        background-color: #4bdaf7;
+        background-color: #f39933;
     }
 </style>
 
@@ -316,9 +316,9 @@ zoomHome.addTo(map);
                 //The map variable
                 var newmap = new mapboxgl.Map({
                     container: 'newmap',
-                    style: 'mapbox://styles/gmireles210/cjo6jvbws1jpu2spfozds4e2b',
-                    center: [-66.105721, 18.200178],
-            zoom: 5.0
+                   style: 'mapbox://styles/gmireles210/cjp7mowck2p282smnpizxk8i6',
+                    center: [-149.9003, 61.2181],
+            zoom: 6.0
             });
                 newmap.scrollZoom.enable();
                 newmap.addControl(new MapboxGeocoder({
@@ -335,10 +335,10 @@ zoomHome.addTo(map);
                         "type":"circle",
                         "source":"earthquakes",
                         "paint": {
-                            "circle-color": "#4bdaf7",
+                            "circle-color": "#f39933",
                             "circle-opacity": 0.5,
                             "circle-radius": 10,
-                            "circle-stroke-color": '#FF4500',
+                            "circle-stroke-color": '#6CCD51',
                             "circle-stroke-width": 1,
                             "circle-stroke-opacity": 0.75
                         }
@@ -385,11 +385,11 @@ zoomHome.addTo(map);
                         }
                     });
     //home button
-    var pr = document.getElementById('pr');
+     var pr = document.getElementById('pr');
     pr.addEventListener("click", function(){
         newmap.setCenter([-66.105721, 18.200178]);
         newmap.setZoom(5);
-        newmap.setstyle('mapbox://styles/gmireles210/cjo6jvbws1jpu2spfozds4e2b');
+        newmap.setstyle('mapbox://styles/gmireles210/cjp7mowck2p282smnpizxk8i6');
     });
 });        
 </script>
