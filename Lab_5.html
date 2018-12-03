@@ -224,7 +224,7 @@ zoomHome.addTo(map);
 	  
 //add a local geojson file
 			//Thanks to https://www.igismap.com/add-load-geojson-file-point-polyline-polygon-map-leaflet-js/ for the tutorial
-			$.getJSON("AK_Cities.geojson",function(data){
+			$.getJSON("WA_CITIES.geojson",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			var datalayer = L.geoJson(data ,{
 				onEachFeature: function(feature, featureLayer) {
@@ -234,7 +234,7 @@ zoomHome.addTo(map);
 			map.fitBounds(datalayer.getBounds());
 			});
 	
-	$.getJSON("Volcano.geojson",function(data){
+	$.getJSON("WA_Fault.geojson",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			var datalayer = L.geoJson(data ,{
 				onEachFeature: function(feature, featureLayer) {
