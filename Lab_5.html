@@ -5,33 +5,11 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+	<head>
 
-	<body class="no-sidebar is-preload">
-		<div id="page-wrapper">
 
-			<!-- Header -->
-				<header id="header">
-					<h1 id="logo">MSGT <span>by Greg Mireles</span></a></h1>
-					<nav id="nav">
-						<ul>
-							<li class="current"><a href="index.html">Home Page</a></li>
-
-					</nav>
-				</header>
-
-						<section class="wrapper style4 container">
-
-							<!-- Content -->
-								<div class="content">
-									<section>
-
-										<header>
-											<h3><strong>Lab 4: Live GeoJSON/KML Data</strong>
-											<br><strong>National KML Snow Data for the U.S.</strong></h3>
-										</header>
-
-										<head>
-		<title>Lab 4: Live Geojson/KML/KMZ Data</title>
+										
+		<title>Lab 5: A Web-Based Story Map</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -50,16 +28,16 @@
 	<!-- the Omnivore plugin to convert KML to GeoJSON -->
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>										
   
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
 
-
-  <style>
+	<style>
      
    #map {
           width: 100%;
@@ -69,11 +47,100 @@
        
   </style>
 
-<body>
+	<body class="left-sidebar is-preload">
+		<div id="page-wrapper">
 
-  <div id="map"style="width: 1245px; height: 400px"></div>
+			<!-- Header -->
+		<header id="header">
+			<h1 id="logo">MSGT <span>by Greg Mireles</span></a></h1>
+				<nav id="nav">
+			<ul>
+			<li class="current"><a href="index.html">Home Page</a></li>
 
-  <script>
+				</nav>
+		</header>
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon fa-laptop"></span>
+						<h2><strong>Lab 5:</strong><br>
+							An overview of Alaskan Earthquakes <strong>in a Web-based Story Map</strong></h2>
+						
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style4 container">
+
+							<div class="row gtr-150">
+								<div class="col-4 col-12-narrower">
+
+									<!-- Sidebar -->
+										<div class="sidebar">
+											<section>
+												<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+												<header>
+													<h3>Amet Lorem Tempus</h3>
+												</header>
+												<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+												<footer>
+													<ul class="buttons">
+														<li><a href="#" class="button small">Learn More</a></li>
+													</ul>
+												</footer>
+											</section>
+
+											<br>
+
+											<section>
+												<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+												<header>
+													<h3>Amet Lorem Tempus</h3>
+												</header>
+												<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+												<footer>
+													<ul class="buttons">
+														<li><a href="#" class="button small">Learn More</a></li>
+													</ul>
+												</footer>
+											</section>
+
+											<br>
+
+											<section>
+												<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+												<header>
+													<h3>Amet Lorem Tempus</h3>
+												</header>
+												<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+												<footer>
+													<ul class="buttons">
+														<li><a href="#" class="button small">Learn More</a></li>
+													</ul>
+												</footer>
+											</section>
+
+
+
+										</div>
+
+										</div>
+								
+<div class="col-8 col-12-narrower imp-narrower">
+
+<!-- Content -->
+<div class="content">
+
+			<header>
+			<h3>
+			<strong>Major Cities in Alaska</strong>
+			</h3>
+			</header>
+
+<div id="map"style="width: 800px; height: 400px"></div>
+
+<script>
 	  
 var lat = 39.056198;
 var lng = -95.695312;
@@ -170,19 +237,17 @@ zoomHome.addTo(map);
     
   </script>
 
+					<h3>Cities Near Earthquake Prone Area's</h3>
+				</header>
+	
+	
+						<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum massa. Morbi eu faucibus massa. Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
+						<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique. Sed id sem et massa ornare pellentesque. Maecenas pharetra porta accumsan. </p>
+						<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus, non hendrerit ipsum arcu tristique est.</p>
 
-
-
-</body>
-
-<header>
-	<h3>Background</h3>
-	</header>
-	<p>The map above is displaying NOAA KML data, which is another form of live data (KML). This KML data represents snow data as polygons that show where it is currently snowing in the U.S., which is updated by NOAA everyday.
-	</p>
-
-<div> 
-	<style>
+				<div>
+					
+<style>
         
         #newmap {
           width: 100%;
@@ -197,33 +262,33 @@ zoomHome.addTo(map);
 <style>
  #remover {
         margin: 0 auto;
-        background-color: #4bdaf7;
+        background-color: #f39933;
         color: 'black';
         padding: 0.1em;
-        border: 2px solid #d541e0;
+        border: 2px solid #6CCD51;
         border-radius: 0.3em;
         cursor: pointer;
         position: absolute;
-        left: 13.9em;
-        top: 44.8em;
+        left: 35.3em;
+        top: 93.8em;
     }
     #remover:hover {
-        background-color: #4bdaf7;
+        background-color: #f39933;
     }
     #pr {
         margin: 0 auto;
-        background-color: #4bdaf7;
+        background-color: #f39933;
         color: 'black';
         padding: 0.1em;
-        border: 2px solid #d541e0;
+        border: 2px solid #6CCD51;
         border-radius: 0.3em;
         cursor: pointer;
         position: absolute;
-        left: 13.9em;
-        top: 47.5em;
+        left: 35.3em;
+        top: 96.5em;
     }
     #pr:hover {
-        background-color: #4bdaf7;
+        background-color: #f39933;
     }
 </style>
 
@@ -233,7 +298,8 @@ zoomHome.addTo(map);
 <br>    
 <br>
 		<div class="content">
-									<section>
+			
+	<section>
 
 			<header>
 			<h3>
@@ -250,9 +316,9 @@ zoomHome.addTo(map);
                 //The map variable
                 var newmap = new mapboxgl.Map({
                     container: 'newmap',
-                    style: 'mapbox://styles/gmireles210/cjo6jvbws1jpu2spfozds4e2b',
-                    center: [-66.105721, 18.200178],
-            zoom: 5.0
+                   style: 'mapbox://styles/gmireles210/cjp7mowck2p282smnpizxk8i6',
+                    center: [-149.9003, 61.2181],
+            zoom: 6.0
             });
                 newmap.scrollZoom.enable();
                 newmap.addControl(new MapboxGeocoder({
@@ -264,63 +330,19 @@ zoomHome.addTo(map);
                         "type": "geojson",
                         "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
                     });
-
-newmap.addLayer({
-  id: 'trees-heat',
-  type: 'heatmap',
-  source: 'earthquakes',
-  maxzoom: 15,
-  paint: {
-    // increase weight as diameter breast height increases
-    'heatmap-weight': {
-      property: 'dbh',
-      type: 'exponential',
-      stops: [
-        [1, 0],
-        [62, 1]
-      ]
-
-                   newmap.addLayer({
-  id: 'trees-point',
-  type: 'circle',
-  source: 'earthquakes',
-  minzoom: 14,
-  paint: {
-    // increase the radius of the circle as the zoom level and dbh value increases
-    'circle-radius': {
-      property: 'dbh',
-      type: 'exponential',
-      stops: [
-        [{ zoom: 15, value: 1 }, 5],
-        [{ zoom: 15, value: 62 }, 10],
-        [{ zoom: 22, value: 1 }, 20],
-        [{ zoom: 22, value: 62 }, 50],
-      ]
-    },
-    'circle-color': {
-      property: 'dbh',
-      type: 'exponential',
-      stops: [
-        [0, 'rgba(236,222,239,0)'],
-        [10, 'rgb(236,222,239)'],
-        [20, 'rgb(208,209,230)'],
-        [30, 'rgb(166,189,219)'],
-        [40, 'rgb(103,169,207)'],
-        [50, 'rgb(28,144,153)'],
-        [60, 'rgb(1,108,89)']
-      ]
-    },
-    'circle-stroke-color': 'white',
-    'circle-stroke-width': 1,
-    'circle-opacity': {
-      stops: [
-        [14, 0],
-        [15, 1]
-      ]
-    }
-  }
-}, 'waterway-label');
-
+                    newmap.addLayer({
+                        "id":"equakes",
+                        "type":"circle",
+                        "source":"earthquakes",
+                        "paint": {
+                            "circle-color": "#f39933",
+                            "circle-opacity": 0.5,
+                            "circle-radius": 10,
+                            "circle-stroke-color": '#6CCD51',
+                            "circle-stroke-width": 1,
+                            "circle-stroke-opacity": 0.75
+                        }
+                    });
                //add a handler for clicking/popups 
                 //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/ 
                 newmap.on('click', 'equakes', function (e) {
@@ -363,32 +385,43 @@ newmap.addLayer({
                         }
                     });
     //home button
-    var pr = document.getElementById('pr');
+     var pr = document.getElementById('pr');
     pr.addEventListener("click", function(){
         newmap.setCenter([-66.105721, 18.200178]);
         newmap.setZoom(5);
-        newmap.setstyle('mapbox://styles/gmireles210/cjo6jvbws1jpu2spfozds4e2b');
+        newmap.setstyle('mapbox://styles/gmireles210/cjp7mowck2p282smnpizxk8i6');
     });
 });        
 </script>
 </body>
 </div>
 	</head>
-										<header>
-											<h3>Background</h3>
-										</header>
-										<p>The above map was designed using Mapbox Studio. The map is displaying live GeoJSON data of weekly earthquakes in Puerto Rico. The data is coming from a USGS live feed summary that constantly updates itself by fetching data from USGS, as specified by the code running in the background. The map has the functionality to search for a place, pan and zoom, re-center on Puerto Rico, toggle on and off the earthquake data, and the ability to click each earthquake icon to display unique data about each. Thank you for taking the time to read and interact with my maps.
-										</p>
-									</section>
-								</div>
-
-						</section>
-
 					
+		<header>
+		<h3>Background</h3>
+		</header>
+			<p>The above map was designed using Mapbox Studio. The map is displaying live GeoJSON data of weekly earthquakes in Puerto Rico. The data is coming from a USGS live feed summary that constantly updates itself by fetching data from USGS, as specified by the code running in the background. The map has the functionality to search for a place, pan and zoom, re-center on Puerto Rico, toggle on and off the earthquake data, and the ability to click each earthquake icon to display unique data about each. Thank you for taking the time to read and interact with my maps.
+			</p>
+					
+		</section>
+	
+</div>
 
-				
+		</section>
+		</section>
 
-			<!-- Footer -->
+
+</div>
+
+</div>
+</div>
+	
+		</section>
+
+<!-- Two -->
+
+
+				<!-- Footer -->
 				<footer id="footer">
 
 					<ul class="icons">
@@ -404,8 +437,7 @@ newmap.addLayer({
 					</ul>
 
 				</footer>
-
-		</div>
+</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
