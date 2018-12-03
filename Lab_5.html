@@ -333,6 +333,12 @@ zoomHome.addTo(map);
                 newmap.addControl(new MapboxGeocoder({
                     accessToken: mapboxgl.accessToken
                 }));
+		    
+		     newmap.on('load', function(){
+                    newmap.addSource('Anchor', {
+                        "type": "geojson",
+                        "data": "Anchor.geojson"
+                    });
                 
                 newmap.on('load', function(){
                     newmap.addSource('earthquakes', {
