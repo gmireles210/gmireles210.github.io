@@ -234,11 +234,11 @@ zoomHome.addTo(map);
 			map.fitBounds(datalayer.getBounds());
 			});
     
-	$.getJSON("WA_Fault.geojson",function(data){
+	$.getJSON("Anchor.geojson",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			var datalayer = L.geoJson(data ,{
 				onEachFeature: function(feature, featureLayer) {
-					featureLayer.bindPopup(feature.properties.text);
+					featureLayer.bindPopup(feature.properties.name);
 				}
 			}).addTo(map);
 			map.fitBounds(datalayer.getBounds());
