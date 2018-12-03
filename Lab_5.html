@@ -238,7 +238,7 @@ zoomHome.addTo(map);
     realtime = L.realtime({
         url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson',
         crossOrigin: true,
-        type: 'geojson'
+        type: 'json'
     }, {
         interval: 3 * 1000
     }).addTo(map);
