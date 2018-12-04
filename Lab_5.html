@@ -334,6 +334,43 @@ zoomHome.addTo(map);
                 newmap.addControl(new MapboxGeocoder({
                     accessToken: mapboxgl.accessToken
                 }));
+		    
+		    newmap.on('load', function(){
+                    newmap.addSource('earthquakes', {
+                        "type": "geojson",
+                        "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+                    });
+                    newmap.addLayer({
+                        "id":"equakes",
+                        "type":"circle",
+                        "source":"earthquakes",
+                        "paint": {
+                            "circle-color": "#FF0000",
+                            "circle-opacity": 0.5,
+                            "circle-radius": 10,
+                            "circle-stroke-color": '#6CCD51',
+                            "circle-stroke-width": 1,
+                            "circle-stroke-opacity": 0.75
+                        }
+                    });
+               //add a handler for clicking/popups 
+                //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/ 
+                newmap.on('click', 'equakes', function (e) {
+                    newmap.getCanvas().style.cursor = 'pointer';
+                    var coordinates = e.features[0].geometry.coordinates.slice();
+                    var description = "<p>Mag: "+e.features[0].properties.mag+"<br>Location: "+e.features[0].properties.place+"<br>URL: <a href='"+e.features[0].properties.url+"'>USGS Details</a></p>"
+                    // Ensure that if the map is zoomed out such that multiple
+                    // copies of the feature are visible, the popup appears
+                    // over the copy being pointed to.
+                    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                    }
+                    //make the popup
+                    new mapboxgl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(newmap);
+                });
                 
                 newmap.on('load', function(){
                     newmap.addSource('earthquakes', {
