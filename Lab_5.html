@@ -233,7 +233,7 @@ zoomHome.addTo(map);
       '
  });
 	
-	$.getJSON("AK_City_New.geojson",function(data){
+	$.getJSON("Anchor.geojson",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			var datalayer = L.geoJson(data ,{
 				onEachFeature: function(feature, featureLayer) {
@@ -244,7 +244,9 @@ zoomHome.addTo(map);
 			});
 		
 	
-	$.getJSON("Anchor.geojson",function(data){
+	//add a local geojson file
+			//Thanks to https://www.igismap.com/add-load-geojson-file-point-polyline-polygon-map-leaflet-js/ for the tutorial
+			$.getJSON("AK_New_City.geojson",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			var datalayer = L.geoJson(data ,{
 				onEachFeature: function(feature, featureLayer) {
