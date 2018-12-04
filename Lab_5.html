@@ -377,37 +377,7 @@ zoomHome.addTo(map);
                         "type": "geojson",
                         "data": "https://opendata.arcgis.com/datasets/cfc2b6503ecd45efa03052d7b9e28a95_0.geojson"
                     });
-                    newmap.addLayer({
-                        "id":"Cities",
-                        "type":"circle",
-                        "source":"Cities",
-                        "paint": {
-                            "circle-color": "#f39933",
-                            "circle-opacity": 0.5,
-                            "circle-radius": 10,
-                            "circle-stroke-color": '#6CCD51',
-                            "circle-stroke-width": 1,
-                            "circle-stroke-opacity": 0.75
-                        }
-                    });
-               //add a handler for clicking/popups 
-                //Thanks to: https://www.mapbox.com/mapbox-gl-js/example/popup-on-click/ 
-                newmap.on('click', 'Cities', function (e) {
-                    newmap.getCanvas().style.cursor = 'pointer';
-                    var coordinates = e.features[0].geometry.coordinates.slice();
-                    var description = "<p>Name: "+e.features[0].properties.NAME+"</p>"
-                    // Ensure that if the map is zoomed out such that multiple
-                    // copies of the feature are visible, the popup appears
-                    // over the copy being pointed to.
-                    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-                    }
-                    //make the popup
-                    new mapboxgl.Popup()
-                    .setLngLat(coordinates)
-                    .setHTML(description)
-                    .addTo(newmap);
-                });
+                    
                     // Change the cursor to a pointer when the mouse is over the places layer.
                     newmap.on('mouseenter', 'equakes', function () {
                         map.getCanvas().style.cursor = 'pointer';
