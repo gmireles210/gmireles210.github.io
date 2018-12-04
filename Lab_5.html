@@ -225,6 +225,12 @@ zoomHome.addTo(map);
 //add a local geojson file
 			//Thanks to https://www.igismap.com/add-load-geojson-file-point-polyline-polygon-map-leaflet-js/ for the tutorial
 			
+	var smallIcon = new L.Icon({
+     iconSize: [27, 27],
+     iconAnchor: [13, 27],
+     popupAnchor:  [1, -24],
+     iconUrl: 'my-icon.png'
+ });
 	
 	$.getJSON("AK_City_New.geojson",function(data){
 			// add GeoJSON layer to the map once the file is loaded
