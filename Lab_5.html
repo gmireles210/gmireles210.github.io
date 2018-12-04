@@ -358,7 +358,7 @@ zoomHome.addTo(map);
                 newmap.on('click', 'equakes', function (e) {
                     newmap.getCanvas().style.cursor = 'pointer';
                     var coordinates = e.features[0].geometry.coordinates.slice();
-                    var description = "<p>Mag: "+e.features[0].properties.mag+"<br>Location: "+e.features[0].properties.place+"<br>URL: <a href='"+e.features[0].properties.url+"'>USGS Details</a></p>"
+                    var description = "<p>Name: "+e.features[0].properties.NAME+"</p>"
                     // Ensure that if the map is zoomed out such that multiple
                     // copies of the feature are visible, the popup appears
                     // over the copy being pointed to.
