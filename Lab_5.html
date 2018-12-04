@@ -229,15 +229,18 @@ zoomHome.addTo(map);
      iconSize: [27, 27],
      iconAnchor: [13, 27],
      popupAnchor:  [1, -24],
-     iconUrl: 'my-icon.png'
+     iconUrl: '
+        gmireles210.github.io/images/city.png
+      '
  });
 	
 	$.getJSON("AK_City_New.geojson",function(data){
 			// add GeoJSON layer to the map once the file is loaded
 			var datalayer = L.geoJson(data ,{
-				onEachFeature: function(feature, featureLayer) {
-					featureLayer.bindPopup(feature.properties.name);
-				}
+				pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, {icon: smallIcon});
+      }
+				
 			}).addTo(map);
 			map.fitBounds(datalayer.getBounds());
 			});
