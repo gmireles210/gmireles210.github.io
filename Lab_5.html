@@ -338,7 +338,7 @@ zoomHome.addTo(map);
 		    newmap.on('load', function(){
                     newmap.addSource('earthquakes', {
                         "type": "geojson",
-                        "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+                        "data": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson"
                     });
                     newmap.addLayer({
                         "id":"equakes",
@@ -372,11 +372,6 @@ zoomHome.addTo(map);
                     .addTo(newmap);
                 });
                 
-                newmap.on('load', function(){
-                    newmap.addSource('Cities', {
-                        "type": "geojson",
-                        "data": "https://opendata.arcgis.com/datasets/cfc2b6503ecd45efa03052d7b9e28a95_0.geojson"
-                    });
                     
                     // Change the cursor to a pointer when the mouse is over the places layer.
                     newmap.on('mouseenter', 'equakes', function () {
